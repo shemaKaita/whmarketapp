@@ -1,0 +1,7 @@
+@use "@/common/styles/variables" as vars;
+
+.heading {
+  font-size: vars.$font-heading-l;
+  font-weight: vars.$font-weight-bold;
+  margin-bottom: vars.$spacing-4;
+}

@@ -1,0 +1,39 @@
+@use "@/common/styles/variables" as vars;
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  background-color: vars.$neutral-0;
+  border-radius: vars.$radius-1;
+  padding: vars.$spacing-2;
+  box-shadow: vars.$shadow-1;
+  transition: box-shadow 0.3s ease;
+}
+
+.image {
+  display: block;
+  border-radius: vars.$radius-1;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+.details {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.subDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: vars.$spacing-2;
+}
+
+.title {
+  font-size: vars.$font-body-xxl;
+  font-weight: vars.$font-weight-bold;
+  padding: vars.$spacing-2 0;
+}

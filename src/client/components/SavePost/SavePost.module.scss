@@ -1,0 +1,14 @@
+@use "@/common/styles/variables" as vars;
+
+.saveButton {
+  background-color: vars.$neutral-900;
+  border-radius: vars.$radius-1;
+  border: none;
+  color: vars.$neutral-0;
+  padding: vars.$spacing-1;
+  cursor: pointer;
+
+  &--saved {
+    background-color: vars.$danger-500;
+  }
+}

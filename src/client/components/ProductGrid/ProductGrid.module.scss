@@ -1,0 +1,8 @@
+@use "@/common/styles/variables" as vars;
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(vars.$card-max-width, 1fr));
+  gap: vars.$spacing-4;
+  padding: vars.$spacing-4;
+}

@@ -1,0 +1,36 @@
+@use "@/common/styles/variables" as vars;
+
+.suggestionsList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: vars.$spacing-1 0;
+  background-color: vars.$neutral-0;
+  border: 1px solid vars.$neutral-900;
+  border-radius: vars.$radius-1;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.suggestionItem {
+  display: flex;
+  padding: vars.$spacing-1 vars.$spacing-2;
+  cursor: pointer;
+
+  &:hover {
+    background-color: vars.$neutral-300;
+  }
+}
+
+.suggestionLink {
+  display: flex;
+  flex-grow: 1;
+  gap: vars.$spacing-2;
+  align-items: center;
+}
+
+.suggestionImage {
+  border-radius: vars.$radius-1;
+}

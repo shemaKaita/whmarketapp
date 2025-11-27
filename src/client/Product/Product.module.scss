@@ -1,0 +1,41 @@
+@use "@/common/styles/variables" as vars;
+
+.productImage {
+  display: block;
+  border-radius: vars.$radius-2;
+  max-width: 100%;
+  height: auto;
+}
+
+.productName {
+  font-size: vars.$font-heading-l;
+  font-weight: vars.$font-weight-bold;
+  margin: vars.$spacing-3 0;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$spacing-2;
+  width: fit-content;
+}
+
+.productMeta {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: vars.$spacing-2;
+}
+
+.productStock {
+  padding: vars.$spacing-2;
+  background-color: vars.$neutral-300;
+  color: vars.$neutral-0;
+  font-size: vars.$font-body-m;
+  font-style: italic;
+  border-radius: vars.$radius-1;
+
+  &--inStock {
+    background-color: vars.$success-400;
+  }
+}

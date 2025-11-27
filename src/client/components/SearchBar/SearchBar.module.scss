@@ -1,0 +1,113 @@
+@use "@/common/styles/variables" as vars;
+
+.searchBar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: vars.$spacing-2;
+  max-width: calc(vars.$page-wrapper-max-width / 2);
+  margin: 0 auto;
+  padding: vars.$spacing-3;
+}
+
+.formWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.homeNav {
+  font-size: vars.$font-body-m;
+  border-radius: vars.$radius-3;
+  border: 2px solid vars.$neutral-300;
+  padding: vars.$spacing-2;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  gap: vars.$spacing-2;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: vars.$spacing-2;
+}
+
+.searchInput {
+  display: flex;
+  flex-grow: 1;
+  padding: vars.$spacing-2;
+  font-size: vars.$font-body-m;
+  border-radius: vars.$radius-3;
+  border: 2px solid vars.$neutral-300;
+
+  &:focus {
+    outline: none;
+    border-color: vars.$neutral-900;
+  }
+}
+
+.searchButton {
+  padding: vars.$spacing-2;
+  font-size: vars.$font-body-m;
+  background-color: vars.$primary-500;
+  color: vars.$neutral-0;
+  font-size: vars.$font-body-m;
+  font-weight: vars.$font-weight-bold;
+  border: none;
+  border-radius: vars.$radius-3;
+  cursor: pointer;
+
+  &:hover {
+    background-color: vars.$primary-400;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px vars.$primary-200;
+  }
+}
+
+.suggestionsWrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  box-shadow: vars.$shadow-1;
+}
+
+.links {
+  display: flex;
+  gap: vars.$spacing-2;
+  margin: vars.$spacing-2;
+  align-self: flex-start;
+}
+
+.link {
+  font-size: vars.$font-body-m;
+  padding: vars.$spacing-2;
+  border: 1px solid vars.$neutral-900;
+  border-radius: vars.$radius-2;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

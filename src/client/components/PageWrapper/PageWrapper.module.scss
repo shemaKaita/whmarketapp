@@ -1,0 +1,7 @@
+@use "@/common/styles/variables" as vars;
+
+.pageWrapper {
+  max-width: vars.$page-wrapper-max-width;
+  margin: 0 auto;
+  padding: vars.$spacing-3;
+}
