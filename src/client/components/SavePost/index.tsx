@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from "react";
 import styles from "./SavePost.module.scss";
 import { classModifier } from "@/common/utils";
-import { useSavedProducts } from "@/common/hooks/useSavedProducts";
+import useSavedProducts from "@/common/hooks/useSavedProducts";
 
 type SavePostProps = {
   id: string;

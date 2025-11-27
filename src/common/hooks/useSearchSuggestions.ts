@@ -3,6 +3,10 @@ import { getMinimalProductDetails, HTTPClient } from "../utils";
 import { MinimalProductDetail, ProductDetail } from "../types";
 import { CLIENT_SEARCH_ENDPOINT, SEARCH_PARAMS } from "../constants";
 
+/**
+ * A custom hook that provides search suggestions based on user input.
+ * @returns An object containing search suggestions and functions to fetch and clear them
+ */
 const useSearchSuggestions = () => {
   const [suggestions, setSuggestions] = useState<MinimalProductDetail[]>([]);
 
