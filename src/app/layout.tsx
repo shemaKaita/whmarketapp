@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "whMarketApp",
+  description: "Browse and search products in our make believe marketplace",
 };
 
 export default function RootLayout({
