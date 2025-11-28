@@ -20,7 +20,15 @@ const Filters: FC<FiltersProps> = ({ queryBody, availableTags }) => {
   >(queryBody?.sortBy || null);
 
   const handleFilterChange = (newFilters: Partial<SearchRequestBody>) => {
-    const updatedQueryBody = { ...queryBody, ...newFilters, page: 1 };
+    const updatedQueryBody = {
+      ...queryBody,
+      ...newFilters,
+      page: 1,
+      filterBy: {
+        ...(queryBody?.filterBy || {}),
+        ...(newFilters.filterBy || {}),
+      },
+    };
     const queryString = QueryString.stringify(updatedQueryBody);
     router.push(`/search?${queryString}`);
   };
@@ -37,14 +45,14 @@ const Filters: FC<FiltersProps> = ({ queryBody, availableTags }) => {
             const newTags = selectedList.map((item) => item.name);
             setTags(newTags);
             handleFilterChange({
-              filterBy: { ...queryBody.filterBy, tags: newTags },
+              filterBy: { ...(queryBody?.filterBy || {}), tags: newTags },
             });
           }}
           onRemove={(selectedList: Array<{ name: string; id: string }>) => {
             const newTags = selectedList.map((item) => item.name);
             setTags(newTags);
             handleFilterChange({
-              filterBy: { ...queryBody.filterBy, tags: newTags },
+              filterBy: { ...(queryBody?.filterBy || {}), tags: newTags },
             });
           }}
           isObject
