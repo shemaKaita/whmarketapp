@@ -5,6 +5,9 @@ import { SearchRequestBody } from "@/common/types";
 import { normalizeQueryParams } from "@/common/utils";
 import serverGetTags from "../serverGetTags";
 
+// Force dynamic rendering to avoid build-time static generation
+export const dynamic = "force-dynamic";
+
 type SearchProps = {
   searchParams: Promise<SearchRequestBody>;
 };

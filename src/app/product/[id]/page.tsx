@@ -1,6 +1,9 @@
 import serverGetProduct from "@/app/serverGetProduct";
 import ProductClient from "@/client/Product";
 
+// Force dynamic rendering to avoid build-time static generation
+export const dynamic = "force-dynamic";
+
 type ProductProps = {
   params: Promise<{ id: string }>;
 };

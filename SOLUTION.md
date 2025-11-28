@@ -47,6 +47,8 @@ This project is built using `NextJS` (React + TypeScript). The app is organized 
 
 ## Running Locally
 
+### Development Mode
+
 1. **Install dependencies:**
    ```sh
    yarn
@@ -55,5 +57,23 @@ This project is built using `NextJS` (React + TypeScript). The app is organized 
    ```sh
    yarn dev
    ```
+3. **Access the app:**
+   Navigate to `http://localhost:3000` in your browser.
+
+### Production Build
+
+1. **Build the application:**
+   ```sh
+   yarn build
+   ```
+2. **Start the production server:**
+   ```sh
+   yarn start
+   ```
+3. **Access the app:**
+   Navigate to `http://localhost:3000` in your browser.
+
+**Note on MSW in Production:**
+The mock server (MSW) runs in all environments (development, build, and production) because this is a demo application without a real backend. The `instrumentation.ts` file in the project root initializes MSW for the Node.js runtime, allowing the mock API to intercept requests during both development and production.
 
 ---
