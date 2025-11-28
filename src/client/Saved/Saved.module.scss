@@ -1,0 +1,7 @@
+@use "@/common/styles/variables" as vars;
+
+.errorMessage {
+  font-size: vars.$font-body-xl;
+  color: vars.$danger-500;
+  margin: vars.$spacing-4 0;
+}

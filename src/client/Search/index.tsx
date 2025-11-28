@@ -32,13 +32,24 @@ const SearchClient: FC<SearchClientProps> = ({
   return (
     <div className={styles.root}>
       <h1 className={styles.heading}>Search Results</h1>
+      <div aria-live="polite" aria-atomic="true" className={styles.resultCount}>
+        {searchResults.count} products found
+      </div>
       <Filters availableTags={availableTags.tags} queryBody={queryBody} />
-      <ProductGrid products={searchResults.products} />
-      <Pagination
-        currentPage={queryBody?.page || 1}
-        totalProducts={searchResults.count}
-        onPageChange={handlePageChange}
-      />
+      {searchResults.products.length === 0 ? (
+        <p className={styles.errorMessage}>
+          No products found. Try adjusting your search or filters.
+        </p>
+      ) : (
+        <>
+          <ProductGrid products={searchResults.products} />
+          <Pagination
+            currentPage={queryBody?.page || 1}
+            totalProducts={searchResults.count}
+            onPageChange={handlePageChange}
+          />
+        </>
+      )}
     </div>
   );
 };

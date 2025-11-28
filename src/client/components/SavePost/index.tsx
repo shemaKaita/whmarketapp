@@ -17,6 +17,9 @@ const SavePost: FC<SavePostProps> = ({ id }) => {
         e.preventDefault();
         toggleSavedProduct(id);
       }}
+      aria-label={
+        isSaved ? "Remove from saved products" : "Add to saved products"
+      }
     >
       {isSaved ? "Unsave" : "Save"}
     </button>

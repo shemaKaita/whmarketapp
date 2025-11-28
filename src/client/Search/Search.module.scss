@@ -5,3 +5,9 @@
   font-weight: vars.$font-weight-bold;
   margin-bottom: vars.$spacing-4;
 }
+
+.errorMessage {
+  font-size: vars.$font-body-xxl;
+  margin: vars.$spacing-4 0;
+  text-align: center;
+}

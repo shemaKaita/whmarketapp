@@ -32,19 +32,31 @@ const SavedClient = () => {
   const [savedProducts, setSavedProducts] = useState<
     MinimalProductDetail[] | null
   >(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const ids = Array.from(savedProductIds);
-    getSavedProducts(ids).then((products) => {
-      setSavedProducts(products);
-    });
+    getSavedProducts(ids)
+      .then((products) => {
+        setSavedProducts(products);
+        setError(null);
+      })
+      .catch((err) => {
+        console.error("Failed to load saved products:", err);
+        setError("Failed to load saved products. Please try again.");
+        setSavedProducts([]);
+      });
   }, [savedProductIds]);
 
   return (
     <div className={styles.savedContainer}>
       <h1 className={styles.title}>Saved Products</h1>
-      {savedProducts === null ? (
-        <p>Loading saved products...</p>
+      {error ? (
+        <p role="alert" className={styles.errorMessage}>
+          {error}
+        </p>
+      ) : savedProducts === null ? (
+        <p role="status">Loading saved products...</p>
       ) : savedProducts.length === 0 ? (
         <p>No saved products.</p>
       ) : (

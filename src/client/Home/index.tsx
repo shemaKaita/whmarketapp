@@ -13,7 +13,13 @@ const HomeClient: FC<HomeClientProps> = ({ recommendedProducts }) => {
   return (
     <div className={styles.root}>
       <h1 className={styles.heading}>Recommended Products</h1>
-      <ProductGrid products={recommendedProducts} />
+      {recommendedProducts.length === 0 ? (
+        <p role="status" className={styles.loadingMessage}>
+          Loading recommended products...
+        </p>
+      ) : (
+        <ProductGrid products={recommendedProducts} prioritizeFirst />
+      )}
     </div>
   );
 };

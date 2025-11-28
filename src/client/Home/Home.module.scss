@@ -5,3 +5,9 @@
   font-weight: vars.$font-weight-bold;
   margin-bottom: vars.$spacing-4;
 }
+
+.loadingMessage {
+  font-size: vars.$font-body-xl;
+  margin: vars.$spacing-4 0;
+  text-align: center;
+}
