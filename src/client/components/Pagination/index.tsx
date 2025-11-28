@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styles from "./Pagination.module.scss";
 import { classModifier } from "@/common/utils";
+import { PRODUCTS_PER_PAGE } from "@/common/constants";
 
 type PaginationProps = {
   currentPage: number;
@@ -13,7 +14,7 @@ const Pagination: FC<PaginationProps> = ({
   totalProducts,
   onPageChange,
 }) => {
-  const totalPages = Math.ceil(totalProducts / 10); // Assuming 10 products per page
+  const totalPages = Math.max(1, Math.ceil(totalProducts / PRODUCTS_PER_PAGE));
 
   const handlePrevious = () => {
     if (currentPage > 1) {
@@ -35,10 +36,11 @@ const Pagination: FC<PaginationProps> = ({
         })}
         onClick={handlePrevious}
         disabled={currentPage === 1}
+        aria-label={`Go to page ${currentPage - 1}`}
       >
         Previous
       </button>
-      <span className={styles.pageInfo}>
+      <span className={styles.pageInfo} aria-current="page">
         Page {currentPage} of {totalPages}
       </span>
       <button
@@ -47,6 +49,7 @@ const Pagination: FC<PaginationProps> = ({
         })}
         onClick={handleNext}
         disabled={currentPage === totalPages}
+        aria-label={`Go to page ${currentPage + 1}`}
       >
         Next
       </button>

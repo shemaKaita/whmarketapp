@@ -23,3 +23,5 @@ export const SEARCH_PARAMS = {
   LIMIT: "limit",
   SORT_BY: "sortBy",
 } as const;
+
+export const PRODUCTS_PER_PAGE = 10;
