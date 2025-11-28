@@ -13,11 +13,18 @@ export const serverGetSearch = async (
     SEARCH_PRODUCTS_ENDPOINT,
     searchParams as SearchRequestBody
   );
-  if (data) {
-    return {
-      products: getMinimalProductDetails(data.products),
-      count: data.count,
-    };
+
+  if (!data) {
+    throw new Error("No response received from search API");
   }
-  return { products: [], count: 0 };
+
+  if (!data.products || !Array.isArray(data.products)) {
+    console.warn("Invalid response structure from search API");
+    return { products: [], count: 0 };
+  }
+
+  return {
+    products: getMinimalProductDetails(data.products),
+    count: data.count ?? 0,
+  };
 };

@@ -1,0 +1,20 @@
+@use "@/common/styles/variables" as vars;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: vars.$spacing-6;
+  background-color: vars.$neutral-100;
+}
+
+.button {
+  margin: vars.$spacing-3;
+  padding: vars.$spacing-2 vars.$spacing-4;
+  background-color: vars.$primary-500;
+  color: vars.$neutral-0;
+  border: none;
+  border-radius: vars.$radius-1;
+  cursor: pointer;
+}
