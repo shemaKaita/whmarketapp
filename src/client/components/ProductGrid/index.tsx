@@ -1,19 +1,25 @@
 import React, { FC } from "react";
-import dynamic from "next/dynamic";
+import ProductCard from "@/client/components/ProductCard";
 import type { MinimalProductDetail } from "@/common/types";
 import styles from "./ProductGrid.module.scss";
-const ProductCard = dynamic(() => import("@/client/components/ProductCard"), {
-  ssr: false,
-});
 
 type ProductGridProps = {
   products: MinimalProductDetail[];
+  prioritizeFirst?: boolean;
 };
-const ProductGrid: FC<ProductGridProps> = ({ products }) => {
+
+const ProductGrid: FC<ProductGridProps> = ({
+  products,
+  prioritizeFirst = false,
+}) => {
   return (
     <div className={styles.productGrid}>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+      {products.map((product, index) => (
+        <ProductCard
+          key={product.id}
+          product={product}
+          priority={prioritizeFirst && index === 0}
+        />
       ))}
     </div>
   );

@@ -8,9 +8,10 @@ import SavePost from "../SavePost";
 
 interface ProductCardProps {
   product: MinimalProductDetail;
+  priority?: boolean;
 }
 
-const ProductCard: FC<ProductCardProps> = ({ product }) => {
+const ProductCard: FC<ProductCardProps> = ({ product, priority = false }) => {
   const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: product.currency,
@@ -28,7 +29,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           alt={product.name}
           width={200}
           height={200}
-          loading="eager"
+          loading={priority ? undefined : "lazy"}
+          priority={priority}
         />
       </Link>
       <div className={styles.details}>
